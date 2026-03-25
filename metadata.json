@@ -1,0 +1,9 @@
+{
+  "name": "StreetGuard AI",
+  "description": "Enterprise-grade community safety system that detects dangerous street animals using simulated AI-powered CCTV analysis and real-time alerts.",
+  "requestFramePermissions": [
+    "camera",
+    "microphone",
+    "geolocation"
+  ]
+}
