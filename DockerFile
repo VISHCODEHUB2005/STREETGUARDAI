@@ -1,23 +1,20 @@
-# Use appropriate base image (adjust based on your project)
+# This is the base image with Python 3.9
 FROM python:3.9-slim
 
-# Set working directory
+# Set the working directory inside the container
 WORKDIR /app
 
-# Copy requirements first (for better caching)
+# Copy requirements.txt from your computer into the container
 COPY requirements.txt .
 
-# Install dependencies
+# Install all Python packages listed in requirements.txt
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Copy the entire project
+# Copy ALL your project files into the container
 COPY . .
 
-# Set environment variables if needed
-ENV PYTHONUNBUFFERED=1
-
-# Expose port if it's a web app
+# Tell Docker what port your app uses (change 8000 if different)
 EXPOSE 8000
 
-# Define startup command (adjust based on your project)
+# This command runs when the container starts
 CMD ["python", "main.py"]
